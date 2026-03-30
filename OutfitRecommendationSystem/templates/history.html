@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="text-center">
+    <h2 class="display-5 text-primary fw-bold mb-4">Recommendation History</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            {% if data %}
+            <div class="table-responsive">
+                <table class="table table-hover shadow-sm align-middle">
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col" class="py-3">#</th>
+                            <th scope="col" class="py-3">Weather</th>
+                            <th scope="col" class="py-3">Occasion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            <th scope="row" class="py-3">{{ loop.index }}</th>
+                            <td class="py-3"><span class="badge bg-info text-dark">{{ row[0] }}</span></td>
+                            <td class="py-3"><span class="badge bg-secondary">{{ row[1] }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info shadow-sm py-4">
+                <i class="bi bi-info-circle fs-4 d-block mb-2"></i>
+                No recommendation history found yet. Start by getting a recommendation!
+            </div>
+            {% endif %}
+            
+            <div class="mt-4">
+                <a href="{{ url_for('recommend') }}" class="btn btn-primary">
+                    <i class="bi bi-stars me-2"></i>Get New Recommendation
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="text-center">
+    <h2 class="display-5 text-primary fw-bold mb-4">Login</h2>
+    <p class="lead text-muted mb-4">Please log in to continue and get personalized recommendations.</p>
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-sm text-start">
+                <div class="card-body p-4">
+                    <form action="{{ url_for('login') }}" method="POST">
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-bold">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required placeholder="Enter any username">
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-bold">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required placeholder="Enter any password">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                        </button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p class="mb-0">Don't have an account? <a href="{{ url_for('register') }}" class="text-decoration-none">Sign up here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

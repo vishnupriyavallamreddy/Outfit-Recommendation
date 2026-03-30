@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="row justify-content-center fade-in-section align-items-center h-100 mt-4">
+    <div class="col-lg-6 col-md-8">
+        <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+            <div class="card-header bg-white text-center py-4 border-0">
+                <h3 class="fw-bold mb-0" style="color: #2c3e50;"><i class="bi bi-magic text-primary me-2"></i> Find Your Outfit</h3>
+                <p class="text-muted small mt-2 mb-0">Select the conditions to get tailored suggestions.</p>
+            </div>
+            <div class="card-body p-5 bg-light">
+                <form id="recommendation-form" action="{{ url_for('result') }}" method="POST">
+                    
+                    <!-- Weather Selection -->
+                    <div class="mb-4">
+                        <label for="weather" class="form-label fw-semibold text-secondary"><i class="bi bi-cloud-sun me-1"></i> Select Weather</label>
+                        <select class="form-select form-select-lg shadow-sm border-0" id="weather" name="weather">
+                            <option value="">-- Choose Weather --</option>
+                            <option value="Hot">Hot ☀️</option>
+                            <option value="Cold">Cold ❄️</option>
+                            <option value="Rainy">Rainy 🌧️</option>
+                        </select>
+                        <div class="invalid-feedback ps-2">Please select a weather condition.</div>
+                    </div>
+
+                    <!-- Occasion Selection -->
+                    <div class="mb-5">
+                        <label for="occasion" class="form-label fw-semibold text-secondary"><i class="bi bi-calendar-event me-1"></i> Select Occasion</label>
+                        <select class="form-select form-select-lg shadow-sm border-0" id="occasion" name="occasion">
+                            <option value="">-- Choose Occasion --</option>
+                            <option value="Casual">Casual 👕</option>
+                            <option value="Formal">Formal 👔</option>
+                            <option value="Party">Party 🍸</option>
+                        </select>
+                        <div class="invalid-feedback ps-2">Please select an occasion.</div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm fw-bold py-3 text-uppercase" style="letter-spacing: 1px;">
+                            Show Recommendations <i class="bi bi-arrow-right-short ms-1 fs-5"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

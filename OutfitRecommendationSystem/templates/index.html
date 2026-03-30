@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Image Carousel -->
+<div id="homeCarousel" class="carousel slide mb-5 shadow-lg rounded overflow-hidden" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200&h=500&fit=crop" class="d-block w-100 object-fit-cover" alt="Winter Fashion" style="height: 500px;">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                <h5>Discover Your Style</h5>
+                <p>Find the perfect outfit for any weather.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&h=500&fit=crop" class="d-block w-100 object-fit-cover" alt="Shopping" style="height: 500px;">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                <h5>Elevate Your Look</h5>
+                <p>Curated recommendations just for you.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&h=500&fit=crop" class="d-block w-100 object-fit-cover" alt="Lifestyle" style="height: 500px;">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                <h5>Any Occasion</h5>
+                <p>From casual meetups to formal events.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<section class="text-center">
+    <h1 class="display-4 text-primary fw-bold mb-4">Welcome to Outfit Recommendation System</h1>
+    <p class="lead text-muted mb-5">Unsure what to wear? Tell us the weather and occasion, and we'll recommend the perfect outfit for you!</p>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 bg-light">
+                <div class="card-body py-5">
+                    <h3 class="card-title mb-4">Ready to start?</h3>
+                    <a href="{{ url_for('recommend') }}" class="btn btn-primary btn-lg px-5 rounded-pill shadow-sm get-started-btn">Get Recommendation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
